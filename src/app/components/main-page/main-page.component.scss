@@ -37,15 +37,16 @@
   justify-content: center;
 
     button[type="submit"] {
-      background-color: #337ab7;
+      background-color: #0E64D2;
       color: #fff;
-      padding: 10px 20px;
+      padding: 15px 30px;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
+
   
       &:hover {
-        background-color: #23527c;
+        background-color: #0E64D2;
       }
     }
   }
