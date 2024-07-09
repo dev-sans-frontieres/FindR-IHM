@@ -1,34 +1,14 @@
 <div class="container">
   <header>
     <h1>FindR</h1>
-    <nav>
-
-    </nav>
   </header>
-  <section>
-    <div class="sidebar">
-      <div class="user-info">
-        <img src="https://i.pinimg.com/236x/d7/74/ec/d774ecff8fecc6100e9043db67f36997.jpg" alt="User Avatar">
-        <p>Emily Smith</p>
-      </div>
-      <ul>
-        <li routerLinkActive="active"><a routerLink="/account"> 
-          <img src="">Compte <span class="chevron-sidebar">></span> </a>
-        </li>
-        <li routerLinkActive="active"><a routerLink="/portfolio"> 
-          <img src="">Portfolio <span class="chevron-sidebar">></span></a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/objects"> <img src="">Mes objets <span class="chevron-sidebar">></span></a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/exit"> <img src="">Exit <span class="chevron-sidebar">></span></a>
-        </li>
-      </ul>
-    </div>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-    <div class="spacer"></div>
-  </section>
+  <main>
+    <nav>
+      <app-side-bar></app-side-bar>
+    </nav>
+    <section>
+      <app-compte></app-compte>
+    <!-- <router-outlet></router-outlet> -->
+    </section>
+  </main>
 </div>
