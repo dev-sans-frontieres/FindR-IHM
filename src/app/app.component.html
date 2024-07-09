@@ -1,17 +1,15 @@
 <div class="container">
-  <div class="sidebar">
-    <div class="user-info">
-      <img src="https://i.pinimg.com/236x/d7/74/ec/d774ecff8fecc6100e9043db67f36997.jpg" alt="User Avatar">
-      <p>Emily Smith</p>
-    </div>
-    <ul>
-      <li routerLinkActive="active"><a routerLink="/account">Compte</a></li>
-      <li routerLinkActive="active"><a routerLink="/portfolio">Portfolio</a></li>
-      <li routerLinkActive="active"><a routerLink="/objects">Mes objets</a></li>
-      <li routerLinkActive="active"><a routerLink="/exit">Exit</a></li>
-    </ul>
-  </div>
-  <div class="content">
+  <header>
+    <h1>FindR</h1>
+  </header>
+  <main>
+    <nav>
+      <app-side-bar></app-side-bar>
+    </nav>
+    <section>
+    <!-- <app-compte></app-compte> -->
+     <!-- <app-main-page></app-main-page>-->
     <router-outlet></router-outlet>
-  </div>
+    </section>
+  </main>
 </div>
