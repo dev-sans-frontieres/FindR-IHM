@@ -1,18 +1,36 @@
 <form class="account">
-    <h1>Mes objets</h1>
-    <div class="contenu">
-        <div class="recherche">
-            <label>Rechercher</label>
-            <input type="text" placeholder="Rechercher un objet" >
-        </div>
-        <ol class="liste-objets">
-            <div class="description">
-                <span>Nom</span>
-                <span>QR-code</span>
-                <span>Statut</span>
-                <span>chat</span>
-            </div>
-            <li>
+  <h1>Mes objets</h1>
+  <div class="contenu">
+    <div class="recherche">
+      <label>Rechercher</label>
+      <input type="text" placeholder="Rechercher un objet">
+    </div>
+    <ol class="liste-objets">
+      <div class="description">
+        <span>Nom</span>
+        <span>QR-code</span>
+        <span>Statut</span>
+        <span>chat</span>
+      </div>
+      <li *ngFor="let object of objects">
+        <span>{{ object.nom }}</span>
+        <!-- <img [src]="object.qrHash" alt=""> -->
+        <qr-code [value]="object.qrHash + object.id" size="100" errorCorrectionLevel="M" />
+        <!-- <span class="statut" [class.statut-perdu]="object.status !== 'OK'">{{ object.status }}</span> -->
+        <span class="statut" [class.statut-perdu]="object.status !== 'OK'" (click)="toggleStatus(object)">
+          {{object.status }}
+        </span>
+        <button [routerLink]="['/chat', object.id]" class="bouton-perdu" *ngIf="object.status !== 'OK'">Ouvrir le
+          chat</button>
+        <button *ngIf="object.status === 'OK'">
+          Ouvrir le chat
+        </button>
+        <!-- <button [routerLink]="['/chat', object.id]" [routerLinkActive]="['router-link-active']" [routerLink]="['/chat', object.id]" *ngIf="object.status === 'OK'">
+          Ouvrir le chat
+        </button> -->
+        <!-- </a> -->
+      </li>
+      <!-- <li>
                 <span>Téléphone</span>
                 <img src="/qr.png" alt="">
                 <span class="statut statut-perdu">PERDU</span>
@@ -29,10 +47,10 @@
               <img src="/qr.png" alt="">
               <span class="statut statut-perdu">PERDU</span>
               <button class="bouton-perdu">Ouvrir le chat</button>
-          </li>
-            <div class="ajout">
-                <button class="bouton-ajout">+</button>
-            </div>
-        </ol>
-    </div>
-  </form>
+          </li> -->
+      <div class="ajout">
+        <button class="bouton-ajout">+</button>
+      </div>
+    </ol>
+  </div>
+</form>

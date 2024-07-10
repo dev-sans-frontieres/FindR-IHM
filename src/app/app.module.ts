@@ -1,26 +1,27 @@
-import { FormsModule } from '@angular/forms';
-import { Component, NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
-import { Route, RouterLink, RouterLinkActive, RouterModule, RouterOutlet, Routes } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { CardModule } from 'primeng/card';
-import { PanelMenuModule } from 'primeng/panelmenu';
-import { Menu, MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
-import { AvatarModule } from 'primeng/avatar';
-import { PanelModule } from 'primeng/panel';
-import { SideBarComponent } from "./components/side-bar/side-bar.component";
-import { CompteComponent } from "./components/compte/compte.component";
 import { CommonModule } from '@angular/common';
-import { ChatbisComponent } from './components/chatbis/chatbis.component';
-import { ChatComponent } from './components/chat/chat.component';
 import { provideHttpClient } from '@angular/common/http';
-import { WebSocketService } from './service/web-socket-service.service';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet, Routes } from '@angular/router';
+import { QrCodeModule } from 'ng-qrcode';
+import { AvatarModule } from 'primeng/avatar';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { MenuModule } from 'primeng/menu';
+import { PanelModule } from 'primeng/panel';
+import { AppComponent } from './app.component';
 import { ChatFinderComponent } from './components/chat-finder/chat-finder.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { ChatbisComponent } from './components/chatbis/chatbis.component';
+import { CompteComponent } from "./components/compte/compte.component";
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { SideBarComponent } from "./components/side-bar/side-bar.component";
+import { WebSocketService } from './service/web-socket-service.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  // { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', component: MainPageComponent },
   { path: 'main', component: MainPageComponent },
   { path: 'compte', component: CompteComponent },
   { path: 'chatbis', component: ChatbisComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    QrCodeModule,
     FormsModule,
     BrowserModule,
     PanelModule,

@@ -12,28 +12,44 @@ export class MainPageComponent {
 
   objects: IObjectFindR[] = [
     {
+      id: "qr1",
       nom: 'Objet 1',
-      qrHash: 'qr1',
+      qrHash: window.origin + '?redirectFinder=',
       status: 'Perdu',
     },
     {
+      id: "qr2",
       nom: 'Objet 2',
-      qrHash: 'qr2',
+      qrHash: window.origin + '?redirectFinder=',
       status: 'OK',
     },
     {
+      id: "qr3",
       nom: 'Objet 3',
-      qrHash: 'qr3',
+      qrHash: window.origin + '?redirectFinder=',
       status: 'OK',
     }
   ];
 
   ngOnInit(): void {
+    console.log(this.objects)
     this.route.queryParams.subscribe((params) => {
       const redirectFinder = params['redirectFinder'];
       if (redirectFinder) {
         this.router.navigate(['/chat-finder', redirectFinder]);
       }
     });
+  }
+
+  navigateToChat(idChat: string) {
+    this.router.navigate(['/chat', idChat]);
+  }
+
+  toggleStatus(object: any) {
+    if (object.status === 'OK') {
+      object.status = 'PERDU';
+    } else {
+      object.status = 'OK';
+    }
   }
 }

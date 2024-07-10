@@ -76,7 +76,7 @@ export class ChatComponent implements OnInit {
 
     this.http
       .get<IMessageFindR[]>(`http://localhost:8080/rooms/${this.idChat}/messages`)
-      // this.http.get<string[]>(`/rooms/${this.idChat}/messages`)
+      // this.http.get<IMessageFindR[]>(`/rooms/${this.idChat}/messages`)
       .subscribe(
         (data: IMessageFindR[]) => {
           this.messages = data;
@@ -130,4 +130,5 @@ export class ChatComponent implements OnInit {
       // });
     }
   }
+
 }
