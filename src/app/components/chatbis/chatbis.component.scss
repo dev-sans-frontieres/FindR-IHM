@@ -1,0 +1,53 @@
+form {
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;  
+    flex-direction: column;
+    box-shadow: 0px 0px 7px #888888;
+
+    .liste-message{
+        list-style-type: none;
+        padding: 0;
+        .message{
+            padding: 5px;
+            margin: 5px;
+            .message-header{
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 5px;
+            }
+            .contenu{
+                box-shadow: 0px 0px 3px #888888;
+                border-radius: 12px;
+                padding: 20px;
+                display: flex;
+            
+            }
+        }
+    }
+    .zone-entree{
+        display: flex;
+        justify-content: space-between;
+
+        input{
+            box-shadow: 0px 0px 3px #888888;
+            border: 0;
+            border-radius: 25px;
+            padding: 5px;
+            margin-left: 10px;
+            width: 360px;
+        }
+
+        .submit{
+            box-shadow: 0px 0px 3px #888888;
+            border: 0;
+            border-radius: 12px;
+            padding: 10px;
+            background-color: #0e64d2;
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+}

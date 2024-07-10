@@ -55,6 +55,13 @@ form {
           border-bottom: 1px solid #88888884;
           padding: 20px;
 
+          img{
+            width: 10%;
+            height: 10%;
+            object-fit:cover;
+            
+          }
+
           span{
             width: 100px;
             text-align: center;

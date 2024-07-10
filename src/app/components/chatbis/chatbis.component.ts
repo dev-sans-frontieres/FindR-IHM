@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-chat',
   standalone: true,
   imports: [],
-  templateUrl: './chat.component.html',
-  styleUrl: './chat.component.scss'
+  templateUrl: './chatbis.component.html',
+  styleUrl: './chatbis.component.scss'
 })
-export class ChatComponent {
+export class ChatbisComponent {
 
 }
