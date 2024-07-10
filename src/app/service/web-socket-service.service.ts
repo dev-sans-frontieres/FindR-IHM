@@ -38,7 +38,8 @@ export class WebSocketService {
   // }
 
   private createWebSocketConnection(): WebSocket {
-    const serverUrl = 'http://localhost:8080/ws';
+    // const serverUrl = 'http://localhost:8080/ws';
+    const serverUrl = '/ws';
     return new SockJS(serverUrl);
   }
 

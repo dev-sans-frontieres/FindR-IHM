@@ -28,11 +28,13 @@ export class ChatComponent implements OnInit {
       this.idChat = params.get('idChat');
       if (this.idChat !== null) {
         console.log('idChat = ', this.idChat);
+
       }
     });
 
 
-    this.http.get<string[]>(`http://localhost:8080/rooms/${this.idChat}/messages`)
+    // this.http.get<string[]>(`http://localhost:8080/rooms/${this.idChat}/messages`)
+    this.http.get<string[]>(`/rooms/${this.idChat}/messages`)
       .subscribe(
         (data) => {
           this.messages = data;
