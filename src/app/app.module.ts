@@ -12,11 +12,13 @@ import { PanelModule } from 'primeng/panel';
 import { SideBarComponent } from "./components/side-bar/side-bar.component";
 import { CompteComponent } from "./components/compte/compte.component";
 import { CommonModule } from '@angular/common';
+import { ChatbisComponent } from './components/chatbis/chatbis.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main', component: MainPageComponent },
   { path: 'compte', component: CompteComponent },
+  { path: 'chatbis', component: ChatbisComponent }
 ];
 
 @NgModule({
