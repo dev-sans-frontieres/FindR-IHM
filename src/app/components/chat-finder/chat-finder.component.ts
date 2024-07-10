@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Client as StompClient, Message, Stomp } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { WebSocketService } from '../../service/web-socket-service.service';
 import { Sender } from '../../service/sender.enum';
 import { IMessageFindR } from '../../interfaces/message-find-r.interface';
+import { ActivationSideBarService } from '../../service/activation-side-bar.service';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrl: './chat.component.scss',
+  selector: 'app-chat-finder',
+  templateUrl: './chat-finder.component.html',
+  styleUrl: './chat-finder.component.scss',
 })
-export class ChatComponent implements OnInit {
+export class ChatFinderComponent implements OnInit, OnDestroy {
   @Input('idChat') idChat?: string | null;
   public messageContent?: string;
   public messages: IMessageFindR[] = [
@@ -63,10 +64,16 @@ export class ChatComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private webSocketService: WebSocketService
+    private webSocketService: WebSocketService,
+    private activateSideBar: ActivationSideBarService
   ) {}
+  ngOnDestroy(): void {
+    this.activateSideBar.toggleActivate();
+  }
 
   ngOnInit(): void {
+    this.activateSideBar.toggleActivate();
+
     this.route.paramMap.subscribe((params) => {
       this.idChat = params.get('idChat');
       if (this.idChat !== null) {
@@ -117,7 +124,7 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     if (this.messageContent) {
       this.webSocketService.sendMessage(
-        Sender.OWNER,
+        Sender.FINDER,
         this.idChat ? this.idChat : 't',
         this.messageContent
       );

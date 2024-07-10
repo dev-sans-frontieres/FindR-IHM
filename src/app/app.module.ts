@@ -17,6 +17,7 @@ import { ChatbisComponent } from './components/chatbis/chatbis.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { provideHttpClient } from '@angular/common/http';
 import { WebSocketService } from './service/web-socket-service.service';
+import { ChatFinderComponent } from './components/chat-finder/chat-finder.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'compte', component: CompteComponent },
   { path: 'chatbis', component: ChatbisComponent },
   { path: 'chat/:idChat', component: ChatComponent },
+  { path: 'chat-finder/:idChat', component: ChatFinderComponent },
 ];
 
 @NgModule({
@@ -49,6 +51,7 @@ const routes: Routes = [
     ChatbisComponent,
     CompteComponent,
     SideBarComponent,
+    ChatFinderComponent
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule],

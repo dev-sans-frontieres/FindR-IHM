@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { CardModule } from 'primeng/card';
+import { BehaviorSubject } from 'rxjs';
+import { ActivationSideBarService } from './service/activation-side-bar.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,15 @@ import { CardModule } from 'primeng/card';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'FindR-IHM';
+
+  constructor(private activateSideBar: ActivationSideBarService) {}
+
+  ngOnInit(): void {
+  }
+
+  public isActivate(): boolean {
+    return this.activateSideBar.isActive();
+  }
+
+
 }

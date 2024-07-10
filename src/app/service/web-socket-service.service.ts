@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Client, IMessage, Stomp } from '@stomp/stompjs';
 // import * as SockJS from 'stockjs-client';
 import SockJS from 'sockjs-client';
+import { Sender } from './sender.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +39,8 @@ export class WebSocketService {
   // }
 
   private createWebSocketConnection(): WebSocket {
-    // const serverUrl = 'http://localhost:8080/ws';
-    const serverUrl = '/ws';
+    const serverUrl = 'http://localhost:8080/ws';
+    // const serverUrl = '/ws';
     return new SockJS(serverUrl);
   }
 
@@ -61,11 +62,11 @@ export class WebSocketService {
     });
   }
 
-  public sendMessage(roomId: string, message: string) {
+  public sendMessage(sender: Sender, roomId: string, message: string) {
 
     if (this.connected) {
       let chatMessage = {
-        sender: "OWNER",
+        sender: sender,
         content: message,
         type: 'CHAT'
       };
